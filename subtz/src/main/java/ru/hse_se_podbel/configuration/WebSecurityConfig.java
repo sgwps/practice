@@ -29,9 +29,11 @@ public class WebSecurityConfig {
         return httpSecurity.formLogin(form -> form
                 .loginPage("/login").defaultSuccessUrl("/post_login", true))
                 .authorizeHttpRequests((authorize) -> authorize
-//                .requestMatchers("/users/**").hasRole(Role.ADMIN.toString())
-                        .requestMatchers("/users/**").hasAuthority("ADMIN")
+                .requestMatchers("/users/**").hasAuthority("ADMIN")
                 .requestMatchers("/change_password").authenticated()
+                .requestMatchers("/subjects/**").authenticated()
+                .requestMatchers("/tasks/**").authenticated()
+                .requestMatchers("/telegram-api/**").authenticated()
                 .requestMatchers("/").authenticated()
                 .anyRequest().permitAll())
                 .csrf(csrf -> csrf.disable())
