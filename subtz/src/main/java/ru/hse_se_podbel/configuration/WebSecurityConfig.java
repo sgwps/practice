@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/change_password").authenticated()
                 .requestMatchers("/subjects/**").authenticated()
                 .requestMatchers("/tasks/**").authenticated()
-                .requestMatchers("/telegram-api/**").authenticated()
+                .requestMatchers("/telegram-api/**").permitAll()
                 .requestMatchers("/").authenticated()
                 .anyRequest().permitAll())
                 .csrf(csrf -> csrf.disable())
