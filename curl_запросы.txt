@@ -1,0 +1,38 @@
+ curl -H 'Content-Type: application/json' \
+      -d '{ "username":"username",
+          "hardSkills" : ["HardSkill 1", "HardSkill 4"],
+          "softSkills" : ["SoftSkill 2"],
+          "languages" : {"English" : "A1"}}' \
+      -X POST \
+      http://localhost:8000/cv/cv
+
+
+ curl -H 'Content-Type: application/json' \
+      -d '{ "username":"username",
+          "hardSkills" : ["HardSkill 2", "HardSkill 4"],
+          "softSkills" : ["SoftSkill 2"],
+          "languages" : {"English" : "A2"}}' \
+      -X POST \
+      http://localhost:8000/cv/cv
+
+
+ curl -H 'Content-Type: application/json' \
+      -d '{ "username":"username",
+          "hardSkills" : ["HardSkill 2", "HardSkill 4"],
+          "softSkills" : ["SoftSkill 2"],
+          "languages" : {"French" : "B1"}}' \
+      -X POST \
+      http://localhost:8000/cv/cv
+
+
+curl -H 'Content-Type: application/json' \
+      -d '{ "username":"username",
+          "hardSkills" : ["HardSkill 2", "HardSkill 4"],
+          "softSkills" : ["SoftSkill 2"],
+          "languages" : {}}' \
+      -X POST \
+      http://localhost:8000/cv/cv
+
+
+curl -X POST -F "pdfFile=@1111.pdf" -F "username=username" http://localhost:8000/cv/uploadPdf
+{"timestamp":"2024-07-11T09:37:38.855+00:00","status":500,"error":"Internal Server Error","path":"/cv/uploadPdf"}

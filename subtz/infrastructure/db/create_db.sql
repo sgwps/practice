@@ -1,1 +1,0 @@
-create database podbel_db;
